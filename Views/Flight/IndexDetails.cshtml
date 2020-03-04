@@ -1,0 +1,105 @@
+﻿@model FlightManager.ViewModels.Flight.IndexDetailsViewModel
+
+<section class="py-5">
+    <div class="container">
+        <h1 style="margin: 2%; text-align: center;">Flight</h1>
+        <div>
+            <div class="form-group">
+                <label for="origin">Origin</label>
+                <input type="text" readonly class="form-control" id="origin" name="Origin" value="@Model.Origin">
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" readonly class="form-control" id="destination" name="destination" value="@Model.Destination">
+            </div>
+            <div class="form-group">
+                <label for="departureTime">Departure Time</label>
+                <input type="text" readonly class="form-control" id="departureTime" value="@Model.Departure">
+            </div>
+            <div class="form-group">
+                <label for="arrivalTime">Arrival Time</label>
+                <input type="text" readonly class="form-control" id="arrivalTime" value="@Model.Arrival">
+            </div>
+            <div class="form-group">
+                <label for="seats">Passengers Seats</label>
+                <input type="number" readonly class="form-control" id="seats" name="Seats" value="@Model.PassengerSeatsLeft">
+            </div>
+            <div class="form-group">
+                <label for="businessSeats">Business Seats</label>
+                <input type="number" readonly class="form-control" id="businessSeats" name="Business Seats" value="@Model.BusinessClassSeatsLeft">
+            </div>
+            <div class="form-group">
+                <label for="planeNumber">Plane Number</label>
+                <input type="text" readonly class="form-control" id="planeNumber" name="PlaneNumber" value="@Model.PlaneNumber">
+            </div>
+            <div class="form-group">
+                <label for="planeType">Plane Type</label>
+                <input type="text" readonly class="form-control" id="planeType" name="PlaneType" value="@Model.PlaneType">
+            </div>
+
+            <div class="form-group">
+                <label for="pilotName">Pilot Name</label>
+                <input type="text" readonly class="form-control" id="pilotName" name="PilotName" value="@Model.PilotName">
+            </div>
+            @if (User.IsInRole("User") || User.IsInRole("Admin"))
+            {
+                <h3 class="text-center">Passengers</h3>
+                @if (Model.Reservations.Count == 0)
+                {
+                    <p class="text-center mb-4">No reservations have been made.</p>
+                }
+                else
+                {
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Second Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">EGN</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Nationality</th>
+                                <th scope="col">PhoneNumber</th>
+                                <th scope="col">Ticket Type</th>
+                                <th scope="col">Tickets</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var reservation in Model.Reservations)
+                            {
+                                <tr>
+                                    <th scope="row">@reservation.FirstName</th>
+                                    <td>@reservation.SecondName</td>
+                                    <td>@reservation.LastName</td>
+                                    <td>@reservation.EGN</td>
+                                    <td>@reservation.Email</td>
+                                    <td>@reservation.Nationality</td>
+                                    <td>@reservation.PhoneNumber</td>
+                                    <td>@reservation.TicketType</td>
+                                    <td>@reservation.TicketsCount</td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                }
+            }
+
+            <div class="form-group text-center">
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="button-holder mb-2">
+                        <a href="/Flight/Edit?id=@Model.Id" class="btn btn-warning text-uppercase">Edit</a>
+                    </div>
+                    <div class="button-holder mb-2">
+                        <a href="/Flight/Delete?id=@Model.Id" class="btn btn-danger text-uppercase">Delete</a>
+                    </div>
+                }
+                <div class="button-holder mb-2">
+                    <a href="/Reservation/Create?id=@Model.Id" class="btn btn-primary text-uppercase">Make Reservation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
