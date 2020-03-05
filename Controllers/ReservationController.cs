@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FlightManager.Services.Contracts;
 using FlightManager.Services.ServiceModels;
 using FlightManager.ViewModels.Reservation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlightManager.Controllers
@@ -61,7 +62,8 @@ namespace FlightManager.Controllers
 
             return Redirect("/Home/Index");
         }
-        
+
+        [Authorize(Roles = "Admin")]
         public IActionResult IndexReservations(int page)
         {
             int reservationsCount = reservationService.GetCount();

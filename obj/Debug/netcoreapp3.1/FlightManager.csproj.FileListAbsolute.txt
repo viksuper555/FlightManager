@@ -155,3 +155,4 @@ C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\Flig
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\IndexReservations.cshtml.g.cs
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\Create.cshtml.g.cs
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Flight\IndexDetails.cshtml.g.cs
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Edit.cshtml.g.cs

@@ -1,6 +1,7 @@
 ﻿using FlightManager.Services.Contracts;
 using FlightManager.Services.ServiceModels;
 using FlightManager.ViewModels.Flight;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,14 @@ namespace FlightManager.Controllers
             this.reservationService = reservationService;
         }
 
+        //[Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             var viewModel = new CreateFlightViewModel();
             return View(viewModel);
         }
 
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create(CreateFlightViewModel viewModel)
         {
@@ -144,6 +147,67 @@ namespace FlightManager.Controllers
                 });
             }
             return View(viewModel);
+        }
+    
+        //[Authorize(Roles = "Admin")]
+        public IActionResult Edit(string id)
+        {
+            if(!flightService.Exists(id))
+            {
+                return Redirect("IndexFlights?page=1");
+            }
+
+            var flight = flightService.GetFlightById(id);
+
+            var viewModel = new EditFlightViewModel()
+            {
+                Id = flight.Id,
+                Origin = flight.Origin,
+                Destination = flight.Destination,
+                Departure = flight.Departure,
+                Arrival = flight.Arrival,
+                PlaneType = flight.PlaneType,
+                PlaneNumber = flight.PlaneNumber,
+                PilotName = flight.PilotName,
+                PassengerSeatsLeft = flight.PassengerSeatsLeft,
+                BusinessClassSeatsLeft = flight.BusinessClassSeatsLeft
+            };
+
+            return View(viewModel);
+        }
+
+        //[Authorize(Roles = "Admin")]
+        [HttpPost]
+        public IActionResult Edit(EditFlightViewModel viewModel)
+        {
+            if (flightService.Exists(viewModel.Id) && ModelState.IsValid)
+            {
+                var flight = new FlightServiceModel
+                { 
+                    Id = viewModel.Id,
+                    Origin = viewModel.Origin,
+                    Destination = viewModel.Destination,
+                    Departure = viewModel.Departure,
+                    Arrival = viewModel.Arrival,
+                    PlaneType = viewModel.PlaneType,
+                    PlaneNumber = viewModel.PlaneNumber,
+                    PilotName = viewModel.PilotName,
+                    PassengerSeatsLeft = viewModel.PassengerSeatsLeft,
+                    BusinessClassSeatsLeft = viewModel.BusinessClassSeatsLeft
+                };
+                flightService.Edit(flight);
+            }
+            return Redirect("IndexFlights?page=1");
+        }
+
+        //[Authorize(Roles = "Admin")]
+        public IActionResult Delete(string id)
+        {
+            if (flightService.Exists(id))
+            {
+                flightService.DeleteById(id);
+            }
+            return Redirect("IndexFlights?page=1");
         }
     }
 }
