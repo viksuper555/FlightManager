@@ -19,6 +19,54 @@ namespace FlightManager.Controllers
         {
             this.managerService = managerService;
         }
+
+        public IActionResult GetAll(int page, int showPerPage, string orderBy)
+        {
+            if(page < 1 || showPerPage < 1)
+            {
+                return Redirect("/Home/Index");
+            }
+
+            int managersCount = managerService.GetCount();
+
+            var endPage = (managersCount / showPerPage) + 1;
+
+            if (endPage > 1)
+                endPage--;
+
+            if (page > endPage)
+                return Redirect("/Home/Index");
+
+            var managers = managerService.GetAll(page, showPerPage, orderBy);
+
+            var viewModel = new IndexManagersViewModel
+            {
+                Managers = new List<ManagerViewModel>(),
+                ManagersCount = managersCount,
+                ManagersPerPage = showPerPage,
+                OrderBy = orderBy,
+                CurrentPage = page,
+                EndPage = endPage
+            };
+
+            foreach(var manager in managers)
+            {
+                viewModel.Managers.Add(new ManagerViewModel
+                {
+                    Id = manager.Id,
+                    FirstName = manager.FirstName,
+                    LastName = manager.LastName,
+                    Username = manager.UserName,
+                    Address = manager.Address,
+                    EGN = manager.EGN,
+                    Email = manager.Email,
+                    PhoneNumber = manager.PhoneNumber
+                });
+            }
+
+            return View(viewModel);
+        }
+
         [Authorize(Roles = "Admin")]
         public IActionResult Edit(string id)
         {

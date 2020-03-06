@@ -1,4 +1,5 @@
-﻿using FlightManager.Services.Contracts;
+﻿using FlightManager.DataModels;
+using FlightManager.Services.Contracts;
 using FlightManager.Services.ServiceModels;
 using FlightManager.ViewModels.Flight;
 using Microsoft.AspNetCore.Authorization;
@@ -87,7 +88,8 @@ namespace FlightManager.Controllers
 
             foreach (var flight in flights)
             {
-                TimeSpan flightDuration = flight.Arrival.Subtract(flight.Departure);
+                TimeSpan GMTdiff = TimeSpan.FromHours(flightService.GetGMTDifference(flight));
+                TimeSpan flightDuration = flight.Arrival.Subtract(flight.Departure + GMTdiff);
 
                 viewModel.Flights.Add(new FlightViewModel
                 {
@@ -209,5 +211,6 @@ namespace FlightManager.Controllers
             }
             return Redirect("IndexFlights?page=1");
         }
+
     }
 }
