@@ -2,7 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (User.IsInRole("Admin"))
+{
+    <div>
+        <a href="/Manager/GetAll?page=1&showPerPage=10&orderBy=UsernameAsc" class="btn btn-primary text-center mb-2">View All Users</a>
+    </div>
+
+}
+
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
+{
+    <div>
+        <a href="/Reservation/IndexReservations?page=1" class="btn btn-primary text-center mb-2">View All Reservations</a>
+    </div>
+}

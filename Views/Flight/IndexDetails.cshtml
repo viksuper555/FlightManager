@@ -41,7 +41,7 @@
                 <label for="pilotName">Pilot Name</label>
                 <input type="text" readonly class="form-control" id="pilotName" name="PilotName" value="@Model.PilotName">
             </div>
-            @if (User.IsInRole("User") || User.IsInRole("Admin"))
+            @if (User.IsInRole("Manager") || User.IsInRole("Admin"))
             {
                 <h3 class="text-center">Passengers</h3>
                 @if (Model.Reservations.Count == 0)
@@ -87,15 +87,15 @@
             }
 
             <div class="form-group text-center">
-                @*@if (User.IsInRole("Admin"))
-                {*@
+                @if (User.IsInRole("Admin"))
+                {
                     <div class="button-holder mb-2">
                         <a href="/Flight/Edit?id=@Model.Id" class="btn btn-warning text-uppercase">Edit</a>
                     </div>
                     <div class="button-holder mb-2">
                         <a href="/Flight/Delete?id=@Model.Id" class="btn btn-danger text-uppercase">Delete</a>
                     </div>
-                @*}*@
+                }
                 <div class="button-holder mb-2">
                     <a href="/Reservation/Create?id=@Model.Id" class="btn btn-primary text-uppercase">Make Reservation</a>
                 </div>

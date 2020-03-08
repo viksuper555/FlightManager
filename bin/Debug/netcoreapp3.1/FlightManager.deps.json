@@ -2326,7 +2326,8 @@
       "FlightManager.Services/1.0.0": {
         "dependencies": {
           "FlightManager.Data": "1.0.0",
-          "FlightManager.DataModels": "1.0.0"
+          "FlightManager.DataModels": "1.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "3.1.1"
         },
         "runtime": {
           "FlightManager.Services.dll": {}

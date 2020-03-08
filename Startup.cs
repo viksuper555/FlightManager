@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,7 +47,9 @@ namespace FlightManager
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<FlightManagerDbContext>();
 
+            services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IFlightService, FlightService>();
             services.AddTransient<IReservationService, ReservationService>();
             services.AddTransient<IManagerService, ManagerService>();

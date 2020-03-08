@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model FlightManager.ViewModels.Manager.IndexManagersViewModel
+<section class="py-5 col-md-12">
+    <div class="container col-md-12">
+        <h1 style="margin: 2%; text-align: center;">All Users</h1>
+        <div style="padding: 5%;">
+            <div>
+                <h2>Show By: </h2>
+                <div class="mb-4">
+                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=10&@Model.OrderBy">10</a>
+                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=25&@Model.OrderBy">25</a>
+                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=50&@Model.OrderBy">50</a>
+                </div>
+            </div>
+            <div>
+                <h2>Order By: </h2>
+                <div class="mb-4">
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=UsernameAsc">Username Ascending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=UsernameDesc">Username Descending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=EmailAsc">Email Ascending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=EmailDesc">Email Descending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=FirstNameAsc">FirstName Ascending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=FirstNameDesc">FirstName Descending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=LastNameAsc">LastName Ascending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=LastNameDesc">LastName Descending</a>
+                </div>
+            </div>
+
+
+           @if (Model.ManagersCount > 0)
+            {
+                <table class="table">
+
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">EGN</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       @for (var i = 0; i < Model.ManagersCount; i++)
+                        {
+                            <tr>
+                                <th scope="row">@Model.Managers[i].Username</th>
+                                <td>@Model.Managers[i].FirstName</td>
+                                <td>@Model.Managers[i].LastName</td>
+                                <td>@Model.Managers[i].Email</td>
+                                <td>@Model.Managers[i].EGN</td>
+                                <td>@Model.Managers[i].Address</td>
+                                <td>@Model.Managers[i].PhoneNumber</td>
+                                <td>
+                                    <div class="button-holder">
+                                        <a href="/Manager/Edit?id=@Model.Managers[i].Id" class="btn btn-info text-uppercase">Edit</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="button-holder">
+                                        <a href="/Manager/Delete?id=@Model.Managers[i].Id" class="btn btn-danger text-uppercase">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+            <p class="text-center mb-4">No managers yet.</p>
+
+            }
+            <div class="d-flex flex-wrap align-items-center">
+                <div class="pagination mx-auto">
+                    @{
+                        var prevPage = Model.CurrentPage - 1;
+                        var nextPage = Model.CurrentPage + 1;
+                    }
+                    @if (Model.CurrentPage != 1)
+                    {
+                        <a href="/Manager/GetAll?page=@prevPage&showPerPage=@Model.ManagersPerPage&@Model.OrderBy" class="btn btn-primary prev-arrow mx-1"><i class="fas fa-arrow-left"></i></a>
+                    }
+
+                    @for (var j = 1; j <= (Model.ManagersCount / Model.ManagersPerPage) + 1; j++)
+                    {
+                        @if (j == Model.CurrentPage)
+                        {
+                            <a class="btn btn-primary active mx-1" href="/Manager/All?page=@j&showPerPage=@Model.ManagersPerPage&@Model.OrderBy">@j</a>
+                        }
+                        else if (j >= Model.CurrentPage - 4 && (j <= Model.CurrentPage + 4 && j <= Model.EndPage))
+                        {
+                            <a href="/Manager/GetAll?page=@j&showPerPage=@Model.ManagersPerPage&@Model.OrderBy" class="btn mx-1">@j</a>
+                        }
+                    }
+
+                    @if (Model.CurrentPage != Model.EndPage)
+                    {
+                        <a href="/Manager/GetAll?page=@nextPage&showPerPage=@Model.ManagersPerPage&@Model.OrderBy" class="btn btn-primary next-arrow mx-1"><i class="fas fa-arrow-right"></i></a>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

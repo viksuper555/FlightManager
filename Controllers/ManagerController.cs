@@ -20,14 +20,18 @@ namespace FlightManager.Controllers
             this.managerService = managerService;
         }
 
+        //[Authorize(Roles = "Admin")]
         public IActionResult GetAll(int page, int showPerPage, string orderBy)
         {
-            if(page < 1 || showPerPage < 1)
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
+
+            if (page < 1 || showPerPage < 1)
             {
                 return Redirect("/Home/Index");
             }
 
-            int managersCount = managerService.GetCount();
+            int managersCount = managerService.GetCount() - 1;
 
             var endPage = (managersCount / showPerPage) + 1;
 
@@ -67,9 +71,12 @@ namespace FlightManager.Controllers
             return View(viewModel);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Edit(string id)
         {
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
+
             if (managerService.Exists(id))
             {
                 var manager = managerService.GetById(id);
@@ -85,13 +92,15 @@ namespace FlightManager.Controllers
 
                 return View(viewModel);
             }
-            return Redirect("Manager/All?page=1&showPerPage=10&orderBy=FirstNameAsc");
+            return Redirect("GetAll?page=1&showPerPage=10&orderBy=UsernameAsc");
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Edit(EditManagerViewModel model)
         {
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
             if (managerService.Exists(model.Id) && ModelState.IsValid)
             {
                 var serviceModel = new ManagerServiceModel
@@ -104,17 +113,19 @@ namespace FlightManager.Controllers
                 };
                 managerService.Edit(serviceModel);
             }
-            return Redirect("Manager/All?page=1&showPerPage=10&orderBy=FirstNameAsc");
+            return Redirect("GetAll?page=1&showPerPage=10&orderBy=UsernameAsc");
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Delete(string id)
         {
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
             if (managerService.Exists(id))
             {
                 managerService.DeleteById(id);
             }
-            return Redirect("Manager/All?page=1&showPerPage=10&orderBy=FirstNameAsc");
+            return Redirect("/GetAll?page=1&showPerPage=10&orderBy=UsernameAsc");
         }
     }
 }

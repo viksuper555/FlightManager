@@ -171,5 +171,5 @@ C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\Flig
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Manager\IndexManagers.cshtml.g.cs
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Manager\Edit.cshtml.g.cs
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\Razor\Views\Manager\GetAll.cshtml.g.cs

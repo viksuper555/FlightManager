@@ -2751,14 +2751,18 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "FlightManager.Data": "1.0.0",
-          "FlightManager.DataModels": "1.0.0"
+          "FlightManager.DataModels": "1.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "3.1.1"
         },
         "compile": {
           "bin/placeholder/FlightManager.Services.dll": {}
         },
         "runtime": {
           "bin/placeholder/FlightManager.Services.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

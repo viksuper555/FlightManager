@@ -23,6 +23,8 @@ namespace FlightManager.Controllers
         //[Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
             var viewModel = new CreateFlightViewModel();
             return View(viewModel);
         }
@@ -31,7 +33,9 @@ namespace FlightManager.Controllers
         [HttpPost]
         public IActionResult Create(CreateFlightViewModel viewModel)
         {
-             if (!ModelState.IsValid)
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
+            if (!ModelState.IsValid)
             {
                 return Redirect("/Flight/Create");
             }
@@ -154,7 +158,9 @@ namespace FlightManager.Controllers
         //[Authorize(Roles = "Admin")]
         public IActionResult Edit(string id)
         {
-            if(!flightService.Exists(id))
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
+            if (!flightService.Exists(id))
             {
                 return Redirect("IndexFlights?page=1");
             }
@@ -182,6 +188,8 @@ namespace FlightManager.Controllers
         [HttpPost]
         public IActionResult Edit(EditFlightViewModel viewModel)
         {
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
             if (flightService.Exists(viewModel.Id) && ModelState.IsValid)
             {
                 var flight = new FlightServiceModel
@@ -205,6 +213,8 @@ namespace FlightManager.Controllers
         //[Authorize(Roles = "Admin")]
         public IActionResult Delete(string id)
         {
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
             if (flightService.Exists(id))
             {
                 flightService.DeleteById(id);

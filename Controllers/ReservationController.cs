@@ -63,9 +63,11 @@ namespace FlightManager.Controllers
             return Redirect("/Home/Index");
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult IndexReservations(int page)
         {
+            if (!User.IsInRole("Admin"))
+                return Redirect("/Home/Index");
             int reservationsCount = reservationService.GetCount();
             int reservationsPerPage = 8;
 
@@ -76,7 +78,7 @@ namespace FlightManager.Controllers
 
             var endPage = (reservationsCount / reservationsPerPage) + 1;
 
-            if (endPage > 1)
+            if (endPage > 1 && reservationsCount % 8 == 0)
                 endPage--;
 
             if (page > endPage)
@@ -117,7 +119,7 @@ namespace FlightManager.Controllers
         {
             if(reservationService.Exists(id))
             {
-                //reservationService.Confirm(id);
+                reservationService.Confirm(id);
             }
             return Redirect("/Home/Index");
         }
@@ -128,7 +130,7 @@ namespace FlightManager.Controllers
             {
                 reservationService.DeleteById(id);
             }
-            return Redirect("/Home/Index");
+            return Redirect("/Reservation/IndexReservations?page=1");
         }
     }
 }
