@@ -9,6 +9,7 @@ namespace FlightManager.ViewModels.Reservation
     {
         public List<ReservationViewModel> Reservations {get; set;}
         public int ReservationsCount { get; set; }
+        public string SearchString { get; set; }
         public int CurrentPage { get; set; }
         public int EndPage { get; set; }
     }

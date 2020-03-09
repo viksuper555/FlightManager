@@ -14,11 +14,11 @@
             </div>
             <div class="form-group">
                 <label for="departureTime">Departure Time</label>
-                <input type="text" readonly class="form-control" id="departureTime" value="@Model.Departure">
+                <input type="text" readonly class="form-control" id="departureTime" value="@Model.Departure.ToString(" dd.MM.yyyy г. в hh:mm ч.")">
             </div>
             <div class="form-group">
                 <label for="arrivalTime">Arrival Time</label>
-                <input type="text" readonly class="form-control" id="arrivalTime" value="@Model.Arrival">
+                <input type="text" readonly class="form-control" id="arrivalTime" value="@Model.Arrival.ToString(" dd.MM.yyyy г. в hh:mm ч.")">
             </div>
             <div class="form-group">
                 <label for="seats">Passengers Seats</label>

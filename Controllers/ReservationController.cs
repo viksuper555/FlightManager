@@ -64,11 +64,11 @@ namespace FlightManager.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
-        public IActionResult IndexReservations(int page)
+        public IActionResult IndexReservations(int page, string searchString)
         {
             if (!User.IsInRole("Admin"))
                 return Redirect("/Home/Index");
-            int reservationsCount = reservationService.GetCount();
+
             int reservationsPerPage = 8;
 
             if (page < 1)
@@ -76,18 +76,20 @@ namespace FlightManager.Controllers
                 return Redirect("Home/Index");
             }
 
+            var reservations = reservationService.GetAllReservationsByPage(page, searchString);
+            var reservationsCount = reservationService.GetReservationsByFilterString(searchString).Count();
             var endPage = (reservationsCount / reservationsPerPage) + 1;
 
-            if (endPage > 1 && reservationsCount % 8 == 0)
+            if (endPage > 1 &&  reservationsCount % 8 == 0)
                 endPage--;
 
             if (page > endPage)
                 return Redirect("/Home/Index");
 
-            var reservations = reservationService.GetAllReservationsByPage(page);
 
             var viewModel = new IndexReservationsViewModel
             {
+                SearchString = searchString,
                 ReservationsCount = reservationsCount,
                 CurrentPage = page,
                 EndPage = endPage,

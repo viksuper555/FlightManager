@@ -27,8 +27,8 @@
                         <tr>
                             <th scope="row">@Model.Flights[i].Origin</th>
                             <td>@Model.Flights[i].Destination</td>
-                            <td>@Model.Flights[i].Departure</td>
-                            <td>@Model.Flights[i].FlightDuration</td>
+                            <td>@Model.Flights[i].Departure.ToString(" dd.MM.yyyy г. в hh:mm ч.")</td>
+                            <td>@Model.Flights[i].FlightDuration.ToString("hh\\:mm")  ч.</td>
                             <td>@Model.Flights[i].PassengerSeatsLeft</td>
                             <td>@Model.Flights[i].BusinessClassSeatsLeft</td>
                             <td>

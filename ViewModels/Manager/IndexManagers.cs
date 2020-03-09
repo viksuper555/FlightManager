@@ -15,7 +15,9 @@ namespace FlightManager.ViewModels.Manager
 
         public int ManagersPerPage { get; set; }
 
-        public string OrderBy { get; set; }
+        public string FilterBy { get; set; }
+
+        public string SearchString { get; set; }
 
         public int EndPage { get; set; }
     }

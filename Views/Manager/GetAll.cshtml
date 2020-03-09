@@ -11,27 +11,40 @@
             <div>
                 <h2>Show By: </h2>
                 <div class="mb-4">
-                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=10&@Model.OrderBy">10</a>
-                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=25&@Model.OrderBy">25</a>
-                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=50&@Model.OrderBy">50</a>
+                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=10&filterBy=@Model.FilterBy">10</a>
+                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=25&filterBy=@Model.FilterBy">25</a>
+                    <a class="btn btn-primary mx-2" href="/Manager/GetAll?page=1&showPerPage=50&filterBy=@Model.FilterBy">50</a>
                 </div>
             </div>
             <div>
-                <h2>Order By: </h2>
+                <h2>Filter By: </h2>
                 <div class="mb-4">
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=UsernameAsc">Username Ascending</a>
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=UsernameDesc">Username Descending</a>
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=EmailAsc">Email Ascending</a>
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=EmailDesc">Email Descending</a>
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=FirstNameAsc">FirstName Ascending</a>
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=FirstNameDesc">FirstName Descending</a>
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=LastNameAsc">LastName Ascending</a>
-                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&orderBy=LastNameDesc">LastName Descending</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&filterBy=Username&searchString=@Model.SearchString">Username</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&filterBy=Email&searchString=@Model.SearchString">Email</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&filterBy=FirstName&searchString=@Model.SearchString">FirstName</a>
+                    <a class="btn btn-primary mx-2 mb-1" href="/Manager/GetAll?page=1&showPerPage=@Model.ManagersPerPage&filterBy=LastName&searchString=@Model.SearchString">LastName</a>
+
+                    <form method="get" action="/Manager/GetAll">
+                        <div class="form-group" style="display: none">
+                            <input type="text" class="form-control" id="page" name="page" value="1">
+                        </div>
+                        <div class="form-group" style="display: none">
+                            <input type="text" class="form-control" id="showPerPage" name="showPerPage" value="@Model.ManagersPerPage">
+                        </div>
+                        <div class="form-group" style="display: none">
+                            <input type="text" class="form-control" id="filterBy" name="filterBy" value="@Model.FilterBy">
+                        </div>
+                        <div class="form-group">
+                            <label for="searchstring">Search:</label>
+                            <input type="text" class="form-control" id="searchstring" name="searchString" value="@Model.SearchString">
+                        </div>
+                        <button type="submit" class="form-group btn btn-primary">Search</button>
+                    </form>
                 </div>
             </div>
 
 
-           @if (Model.ManagersCount > 0)
+            @if (Model.Managers.Count > 0)
             {
                 <table class="table">
 
@@ -49,7 +62,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                       @for (var i = 0; i < Model.ManagersCount; i++)
+                        @for (var i = 0; i < Model.Managers.Count; i++)
                         {
                             <tr>
                                 <th scope="row">@Model.Managers[i].Username</th>
@@ -76,8 +89,10 @@
             }
             else
             {
-            <p class="text-center mb-4">No managers yet.</p>
-
+                if (Model.ManagersCount == 0)
+                {
+                    <p class="text-center mb-4">No managers yet.</p>
+                }
             }
             <div class="d-flex flex-wrap align-items-center">
                 <div class="pagination mx-auto">
@@ -87,24 +102,24 @@
                     }
                     @if (Model.CurrentPage != 1)
                     {
-                        <a href="/Manager/GetAll?page=@prevPage&showPerPage=@Model.ManagersPerPage&@Model.OrderBy" class="btn btn-primary prev-arrow mx-1"><i class="fas fa-arrow-left"></i></a>
+                        <a href="/Manager/GetAll?page=@prevPage&showPerPage=@Model.ManagersPerPage&@Model.FilterBy&@Model.SearchString" class="btn btn-primary prev-arrow mx-1"><i class="fas fa-arrow-left"></i></a>
                     }
 
                     @for (var j = 1; j <= (Model.ManagersCount / Model.ManagersPerPage) + 1; j++)
                     {
                         @if (j == Model.CurrentPage)
                         {
-                            <a class="btn btn-primary active mx-1" href="/Manager/All?page=@j&showPerPage=@Model.ManagersPerPage&@Model.OrderBy">@j</a>
+                            <a class="btn btn-primary active mx-1" href="/Manager/All?page=@j&showPerPage=@Model.ManagersPerPage&@Model.FilterBy&@Model.SearchString">@j</a>
                         }
                         else if (j >= Model.CurrentPage - 4 && (j <= Model.CurrentPage + 4 && j <= Model.EndPage))
                         {
-                            <a href="/Manager/GetAll?page=@j&showPerPage=@Model.ManagersPerPage&@Model.OrderBy" class="btn mx-1">@j</a>
+                            <a href="/Manager/GetAll?page=@j&showPerPage=@Model.ManagersPerPage&@Model.FilterBy&@Model.SearchString" class="btn mx-1">@j</a>
                         }
                     }
 
                     @if (Model.CurrentPage != Model.EndPage)
                     {
-                        <a href="/Manager/GetAll?page=@nextPage&showPerPage=@Model.ManagersPerPage&@Model.OrderBy" class="btn btn-primary next-arrow mx-1"><i class="fas fa-arrow-right"></i></a>
+                        <a href="/Manager/GetAll?page=@nextPage&showPerPage=@Model.ManagersPerPage&@Model.FilterBy&@Model.SearchString" class="btn btn-primary next-arrow mx-1"><i class="fas fa-arrow-right"></i></a>
                     }
 
                 </div>

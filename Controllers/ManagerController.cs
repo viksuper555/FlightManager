@@ -21,7 +21,7 @@ namespace FlightManager.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
-        public IActionResult GetAll(int page, int showPerPage, string orderBy)
+        public IActionResult GetAll(int page, int showPerPage, string filterBy, string searchString)
         {
             if (!User.IsInRole("Admin"))
                 return Redirect("/Home/Index");
@@ -41,14 +41,14 @@ namespace FlightManager.Controllers
             if (page > endPage)
                 return Redirect("/Home/Index");
 
-            var managers = managerService.GetAll(page, showPerPage, orderBy);
+            var managers = managerService.GetAll(page, showPerPage, filterBy, searchString);
 
             var viewModel = new IndexManagersViewModel
             {
                 Managers = new List<ManagerViewModel>(),
                 ManagersCount = managersCount,
                 ManagersPerPage = showPerPage,
-                OrderBy = orderBy,
+                FilterBy = filterBy,
                 CurrentPage = page,
                 EndPage = endPage
             };
@@ -92,7 +92,7 @@ namespace FlightManager.Controllers
 
                 return View(viewModel);
             }
-            return Redirect("GetAll?page=1&showPerPage=10&orderBy=UsernameAsc");
+            return Redirect("GetAll?page=1&showPerPage=10&filterBy=Username");
         }
 
         //[Authorize(Roles = "Admin")]
@@ -113,7 +113,7 @@ namespace FlightManager.Controllers
                 };
                 managerService.Edit(serviceModel);
             }
-            return Redirect("GetAll?page=1&showPerPage=10&orderBy=UsernameAsc");
+            return Redirect("GetAll?page=1&showPerPage=10&filterBy=Username");
         }
 
         //[Authorize(Roles = "Admin")]
@@ -125,7 +125,7 @@ namespace FlightManager.Controllers
             {
                 managerService.DeleteById(id);
             }
-            return Redirect("/GetAll?page=1&showPerPage=10&orderBy=UsernameAsc");
+            return Redirect("/GetAll?page=1&showPerPage=10&filterBy=Username");
         }
     }
 }
