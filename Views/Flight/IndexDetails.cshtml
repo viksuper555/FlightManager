@@ -36,11 +36,11 @@
                 <label for="planeType">Plane Type</label>
                 <input type="text" readonly class="form-control" id="planeType" name="PlaneType" value="@Model.PlaneType">
             </div>
-
             <div class="form-group">
                 <label for="pilotName">Pilot Name</label>
                 <input type="text" readonly class="form-control" id="pilotName" name="PilotName" value="@Model.PilotName">
             </div>
+
             @if (User.IsInRole("Manager") || User.IsInRole("Admin"))
             {
                 <h3 class="text-center">Passengers</h3>
@@ -90,14 +90,15 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <div class="button-holder mb-2">
-                        <a href="/Flight/Edit?id=@Model.Id" class="btn btn-warning text-uppercase">Edit</a>
+                        <a href="/Flight/Edit?id=@Model.Id" class="btn btn-primary">Edit</a>
                     </div>
                     <div class="button-holder mb-2">
-                        <a href="/Flight/Delete?id=@Model.Id" class="btn btn-danger text-uppercase">Delete</a>
+                        <a href="/Flight/Delete?id=@Model.Id" class="btn btn-danger">Delete</a>
                     </div>
                 }
+                
                 <div class="button-holder mb-2">
-                    <a href="/Reservation/Create?id=@Model.Id" class="btn btn-primary text-uppercase">Make Reservation</a>
+                    <a href="/Reservation/Create?id=@Model.Id" class="@(Model.PassengerSeatsLeft==0&&Model.BusinessClassSeatsLeft==0?"disabled":"") btn btn-primary">Make Reservation</a>
                 </div>
             </div>
         </div>

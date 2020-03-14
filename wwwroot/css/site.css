@@ -6,16 +6,33 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
-
+body {
+    background-image: url("https://media.cntraveler.com/photos/5bcdf8e06965116f2b13ac7f/master/pass/Plane-wing_GettyImages-868986378.jpg");
+    background-repeat: no-repeat, repeat;
+    background-color: #E1FAF9;
+    max-width: 100%;
+    max-height: 100%;
+    background-size: 1920px 1080px;
+}
 /* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.btn-primary {
+    color: #fff;
+    background-color: #EF233C;
+    border-color: #d92339;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.btn-primary:hover {
+    background-color: #B10F2E;
+    border-color: #9c0c27;
+}
+
+.btn-primary:focus {
+    background-color: #EF233C;
+    border-color: #d92339;
+}
+.btn-primary:active {
+    background-color: #EF233C;
+    border-color: #d92339;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -59,13 +76,49 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #E1FAF9;
+}
+
+.index-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.btn-danger {
+    background-color: #023C40;
+    border-color: #023134;
+}
+
+.btn-danger:hover {
+    background-color: #023134;
+    border-color: #022b2e;
+}
+
+.btn-danger:active {
+    background-color: #023C40;
+    border-color: #023134;
+}
+.table{
+    background-color: #E1FAF9;
+}
+
+.table-theme {
+    color: #fff;
+    background-color: #023C40;
+    border-color: #326164;
+}
+
+.material-icons {
+    font-size: 1rem !important;
 }

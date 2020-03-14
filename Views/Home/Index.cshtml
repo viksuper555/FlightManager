@@ -1,18 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<h1 style="text-align:center">Explore your travel opportunities with FlightManager.</h1>
 
 @if (User.IsInRole("Admin"))
 {
-    <div>
-        <a href="/Manager/GetAll?page=1&showPerPage=10&filterBy=Username" class="btn btn-primary text-center mb-2">View All Users</a>
+    <div class="index-buttons">
+        <a href="/Manager/GetAll?page=1&showPerPage=10&filterBy=Username" class="btn btn-primary text-center mb-2" id="button">View All Users</a>
     </div>
 
 }
 
 @if (User.IsInRole("Admin") || User.IsInRole("User"))
 {
-    <div>
+    <div class="index-buttons">
         <a href="/Reservation/IndexReservations?page=1" class="btn btn-primary text-center mb-2">View All Reservations</a>
     </div>
 }
