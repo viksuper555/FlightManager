@@ -1,0 +1,4 @@
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\Data\bin\Debug\netcoreapp3.1\Data.deps.json
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\Data\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs

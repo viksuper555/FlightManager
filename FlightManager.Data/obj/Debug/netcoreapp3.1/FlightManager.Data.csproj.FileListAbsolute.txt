@@ -1,0 +1,7 @@
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager.Data\bin\Debug\netcoreapp3.1\FlightManager.Data.deps.json
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager.Data\bin\Debug\netcoreapp3.1\FlightManager.Data.dll
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager.Data\obj\Debug\netcoreapp3.1\FlightManager.Data.AssemblyInfoInputs.cache
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager.Data\obj\Debug\netcoreapp3.1\FlightManager.Data.AssemblyInfo.cs
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager.Data\obj\Debug\netcoreapp3.1\FlightManager.Data.csprojAssemblyReference.cache
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager.Data\bin\Debug\netcoreapp3.1\FlightManager.Data.Models.dll
+C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager.Data\bin\Debug\netcoreapp3.1\FlightManager.DataModels.dll
