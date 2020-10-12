@@ -7,5 +7,5 @@ As an administrator apply CRUD operations on moderators, flights and reservation
 
 Practiced technologies: 
 EntityFramework, SQL, ASP.NET, MVC architecture, Identities. 
-Some algorithms for paging and filtering entries.
-Sending emails by code :D
+Algorithms for paging and filtering entries.
+Configured an email sender service.
