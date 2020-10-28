@@ -1,0 +1,9 @@
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\bin\Release\netcoreapp3.1\FlightManager.DataModels.deps.json
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\bin\Release\netcoreapp3.1\FlightManager.DataModels.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\bin\Release\netcoreapp3.1\FlightManager.DataModels.pdb
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Release\netcoreapp3.1\FlightManager.DataModels.csprojAssemblyReference.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Release\netcoreapp3.1\FlightManager.DataModels.AssemblyInfoInputs.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Release\netcoreapp3.1\FlightManager.DataModels.AssemblyInfo.cs
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Release\netcoreapp3.1\FlightManager.DataModels.csproj.CoreCompileInputs.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Release\netcoreapp3.1\FlightManager.DataModels.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Release\netcoreapp3.1\FlightManager.DataModels.pdb
