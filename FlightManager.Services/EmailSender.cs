@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Mail;
 using System.Text;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.Threading.Tasks;
 
 namespace FlightManager.Services
@@ -31,24 +31,39 @@ namespace FlightManager.Services
             var toAddress = new MailAddress(email);
             var fromAddress = new MailAddress(this.email, username);
 
-            var smtp = new SmtpClient
+            /* var smtp = new SmtpClient
+             {
+                 Host = "smtp.gmail.com",
+                 Port = 587,
+                 EnableSsl = true,
+                 DeliveryMethod = SmtpDeliveryMethod.Network,
+                 UseDefaultCredentials = false,
+                 Credentials = new NetworkCredential(fromAddress.Address, password),
+                 Timeout = 20000
+             };*/
+            try
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, password),
-                Timeout = 20000
-            };
+                using var emailMessage = new MailMessage(fromAddress, toAddress)
+                {
+                    IsBodyHtml = true,
+                    Subject = subject,
+                    Body = htmlMessage
+                };
 
-            using var emailMessage = new MailMessage(fromAddress, toAddress)
+                emailMessage.To.Add(new MailAddress("user@recipient.com", "The Recipient"));
+
+                emailMessage.From = new MailAddress("user@sender.com", "The Sender");
+
+                SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("dontreplyfm@gmail.com", "test");
+                smtpClient.Credentials = credentials;
+
+                await smtpClient.SendMailAsync(emailMessage);
+            }
+            catch (Exception ex)
             {
-                IsBodyHtml = true,
-                Subject = subject,
-                Body = htmlMessage
-            };
-            await smtp.SendMailAsync(emailMessage);
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
