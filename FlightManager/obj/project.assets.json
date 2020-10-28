@@ -8869,20 +8869,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\viksu\\.nuget\\packages\\": {}
+    "C:\\Users\\viksu\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\viksu\\OneDrive\\Documents\\vik\\FlightManager\\FlightManager\\FlightManager.csproj",
+      "projectUniqueName": "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\FlightManager\\FlightManager.csproj",
       "projectName": "FlightManager",
-      "projectPath": "C:\\Users\\viksu\\OneDrive\\Documents\\vik\\FlightManager\\FlightManager\\FlightManager.csproj",
+      "projectPath": "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\FlightManager\\FlightManager.csproj",
       "packagesPath": "C:\\Users\\viksu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\viksu\\OneDrive\\Documents\\vik\\FlightManager\\FlightManager\\obj\\",
+      "outputPath": "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\FlightManager\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\viksu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -8894,11 +8899,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\viksu\\OneDrive\\Documents\\vik\\FlightManager\\Data\\FlightManager.Data.csproj": {
-              "projectPath": "C:\\Users\\viksu\\OneDrive\\Documents\\vik\\FlightManager\\Data\\FlightManager.Data.csproj"
+            "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\Data\\FlightManager.Data.csproj": {
+              "projectPath": "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\Data\\FlightManager.Data.csproj"
             },
-            "C:\\Users\\viksu\\OneDrive\\Documents\\vik\\FlightManager\\FlightManager.Services\\FlightManager.Services.csproj": {
-              "projectPath": "C:\\Users\\viksu\\OneDrive\\Documents\\vik\\FlightManager\\FlightManager.Services\\FlightManager.Services.csproj"
+            "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\FlightManager.Services\\FlightManager.Services.csproj": {
+              "projectPath": "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\FlightManager.Services\\FlightManager.Services.csproj"
             }
           }
         }
@@ -8967,7 +8972,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
