@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManager.DataModels", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManager.Services", "FlightManager.Services\FlightManager.Services.csproj", "{206B34A6-AD68-4BA7-B397-BD0A333767D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD.xUnit.net.Client", "TDD.xUnit.Client\TDD.xUnit.net.Client.csproj", "{67E76E6E-AC2E-4921-8E35-8CEEE1DC1FF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{206B34A6-AD68-4BA7-B397-BD0A333767D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{206B34A6-AD68-4BA7-B397-BD0A333767D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{206B34A6-AD68-4BA7-B397-BD0A333767D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E76E6E-AC2E-4921-8E35-8CEEE1DC1FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E76E6E-AC2E-4921-8E35-8CEEE1DC1FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E76E6E-AC2E-4921-8E35-8CEEE1DC1FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E76E6E-AC2E-4921-8E35-8CEEE1DC1FF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

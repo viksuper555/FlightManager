@@ -1,10 +1,11 @@
 ﻿using FlightManager.DataModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace FlightManager.Data
 {
-    public class FlightManagerDbContext : IdentityDbContext<Manager>
+    public class FlightManagerDbContext : IdentityDbContext<Manager>, IDbContext
     {
         public FlightManagerDbContext(DbContextOptions<FlightManagerDbContext> options)
             : base(options)
@@ -18,6 +19,11 @@ namespace FlightManager.Data
         {
             base.OnModelCreating(modelBuilder);
 
+        }
+
+        IQueryable<T> IDbContext.Set<T>()
+        {
+            return base.Set<T>();
         }
     }
 }
