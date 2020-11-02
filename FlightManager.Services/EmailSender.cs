@@ -50,12 +50,14 @@ namespace FlightManager.Services
                     Body = htmlMessage
                 };
 
-                emailMessage.To.Add(new MailAddress("user@recipient.com", "The Recipient"));
+                emailMessage.To.Add(toAddress);
 
-                emailMessage.From = new MailAddress("user@sender.com", "The Sender");
+                emailMessage.From = fromAddress;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
-                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("dontreplyfm@gmail.com", "test");
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(
+                    Configuration.GetValue<string>("EmailSender:EmailAddress"), 
+                    Configuration.GetValue<string>("EmailConfig:APIKey"));
                 smtpClient.Credentials = credentials;
 
                 await smtpClient.SendMailAsync(emailMessage);
