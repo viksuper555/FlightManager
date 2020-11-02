@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "elYunr9A3zSaQrDvbY2luVFeWj+/CTe0E6rChQSlmM2wOJ3RRbaCOK1OMHjleT3z2NaCKRpWzZU+m2p+zr6HhA==",
+  "dgSpecHash": "r5mHyfENVzHUQ18gdgEmO5yORC23bhzPGYy6YKdCmjV40EQXEhVD5RN/bSBTbV08OKjjdyaNiWyUNoUiC8eYrQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\viksu\\Source\\Repos\\viksuper555\\FlightManagerRepo\\FlightManager.Services\\FlightManager.Services.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,8 @@
     "C:\\Users\\viksu\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\viksu\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\viksu\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\viksu\\.nuget\\packages\\sendgrid\\9.21.0\\sendgrid.9.21.0.nupkg.sha512",
+    "C:\\Users\\viksu\\.nuget\\packages\\starkbank-ecdsa\\1.2.0\\starkbank-ecdsa.1.2.0.nupkg.sha512",
     "C:\\Users\\viksu\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\viksu\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\viksu\\.nuget\\packages\\system.collections.immutable\\1.7.0\\system.collections.immutable.1.7.0.nupkg.sha512",
