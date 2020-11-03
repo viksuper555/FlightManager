@@ -176,3 +176,5 @@ C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\obj\Rele
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\obj\Release\netcoreapp3.1\FlightManager.dll
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\obj\Release\netcoreapp3.1\FlightManager.pdb
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\obj\Release\netcoreapp3.1\FlightManager.genruntimeconfig.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Release\netcoreapp3.1\SendGrid.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Release\netcoreapp3.1\StarkbankEcdsa.dll
