@@ -64,8 +64,8 @@ namespace FlightManager.Services
                             {newReservation.TicketsCount} {newReservation.TicketType} билети от {flight.Origin} към {flight.Destination}?
                             <br/> Дата на излитане: {flight.Departure.ToString(" dd.MM.yyyy г. в hh:mm ч.")}     
                             <br/> Дата на кацане: {flight.Arrival.ToString(" dd.MM.yyyy г. в hh:mm ч.")}
-                            <p>Натиснете <a href='{urls}Reservation/Confirm?id={newReservation.Id}'>тук</a> за да я потвърдите.
-                            <br/> Натиснете <a href='{urls}Reservation/Delete?id={newReservation.Id}'>тук</a> за да я откажете.
+                            <p>Натиснете <a href='{urls}/Reservation/Confirm?id={newReservation.Id}'>тук</a> за да я потвърдите.
+                            <br/> Натиснете <a href='{urls}/Reservation/Delete?id={newReservation.Id}'>тук</a> за да я откажете.
                             </p>";
 
 
