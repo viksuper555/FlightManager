@@ -53,6 +53,7 @@ namespace FlightManager
             services.AddTransient<IFlightService, FlightService>();
             services.AddTransient<IReservationService, ReservationService>();
             services.AddTransient<IManagerService, ManagerService>();
+            services.AddTransient<ICityService, CityService>();
             services.AddControllersWithViews();
         }
 

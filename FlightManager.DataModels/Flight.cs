@@ -9,14 +9,6 @@ namespace FlightManager.DataModels
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
         [Required]
-        [MaxLength(40)]
-        public string Origin { get; set; }
-
-        [Required]
-        [MaxLength(40)]
-        public string Destination { get; set; }
-
-        [Required]
         public DateTime Departure { get; set; }
 
         [Required]
@@ -39,6 +31,16 @@ namespace FlightManager.DataModels
         [Required]
         [Range(0, 10000)]
         public int BusinessClassSeatsLeft { get; set; }
+
+        public City Origin { get; set; }
+
+        [Required]
+        public string OriginId { get; set; }
+
+        public City Destination { get; set; }
+
+        [Required]
+        public string DestinationId { get; set; }
 
         public ICollection<Reservation> Reservations { get; set; } = new HashSet<Reservation>();
 

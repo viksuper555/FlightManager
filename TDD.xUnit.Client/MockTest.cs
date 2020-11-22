@@ -14,7 +14,7 @@ namespace TDD.xUnit.net.Client
         public void CanMock()
         {
             //Arrange
-            var data = new[] { new Flight { Id = "1", Origin = "China" }, new Flight { Id = "2", Origin = "India" } }.AsQueryable();
+            var data = new[] { new Flight { Id = "1", Origin = new City{ Name = "China"} }, new Flight { Id = "2", Origin = new City { Name = "India" } } }.AsQueryable();
             var mock = new Mock<IDbContext>();
             mock.Setup(x => x.Set<Flight>()).Returns(data);
             //Act

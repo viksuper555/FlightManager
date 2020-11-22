@@ -142,3 +142,5 @@ C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\TDD.xUnit.Client\bin\D
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\TDD.xUnit.Client\obj\Debug\netcoreapp3.1\TDD.xUnit.net.Client.csproj.CoreCompileInputs.cache
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\TDD.xUnit.Client\obj\Debug\netcoreapp3.1\TDD.xUnit.net.Client.dll
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\TDD.xUnit.Client\obj\Debug\netcoreapp3.1\TDD.xUnit.net.Client.pdb
+C:\Users\viksu\source\repos\viksuper555\FlightManagerRepo\TDD.xUnit.Client\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\viksu\source\repos\viksuper555\FlightManagerRepo\TDD.xUnit.Client\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll

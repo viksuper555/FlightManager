@@ -1,9 +1,9 @@
 ﻿@model FlightManager.ViewModels.Flight.IndexFlightsViewModel
 
 @*@{
-    ViewData["Title"] = "IndexFlights";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
+        ViewData["Title"] = "IndexFlights";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
 
 <section class="py-5">
     <div class="container">
@@ -18,30 +18,36 @@
                         <th scope="col">Flight duration</th>
                         <th scope="col">Passenger Seats</th>
                         <th scope="col">Business Class Seats</th>
+                        <th scope="col">Coordinates</th>
                         <th scope="col">Details</th>
                     </tr>
                 </thead>
                 <tbody>
                     @for (var i = 0; i < Model.Flights.Count; i++)
                     {
-                        <tr>
-                            <th scope="row">@Model.Flights[i].Origin</th>
-                            <td>@Model.Flights[i].Destination</td>
-                            <td>@Model.Flights[i].Departure.ToString(" dd.MM.yyyy г. в hh:mm ч.")</td>
-                            <td>@Model.Flights[i].FlightDuration.ToString("hh\\:mm")  ч.</td>
-                            <td>@Model.Flights[i].PassengerSeatsLeft</td>
-                            <td>@Model.Flights[i].BusinessClassSeatsLeft</td>
-                            <td>
-                                <div class="button-holder">
-                                    <a href="/Flight/IndexDetails?id=@Model.Flights[i].Id" class="btn btn-primary">More info</a>
-                                </div>
-                            </td>
-                        </tr>
+                    <tr>
+                        <th scope="row">@Model.Flights[i].Origin.Name</th>
+                        <td>@Model.Flights[i].Destination.Name</td>
+                        <td>@Model.Flights[i].Departure.ToString(" dd.MM.yyyy г. в hh:mm ч.")</td>
+                        <td>@Model.Flights[i].FlightDuration.ToString("hh\\:mm")  ч.</td>
+                        <td>@Model.Flights[i].PassengerSeatsLeft</td>
+                        <td>@Model.Flights[i].BusinessClassSeatsLeft</td>
+                        <!--TODO: Add longtitude and latitude-->
+                        <td>Origin coordinates: @Model.Flights[i].Origin.Latitude : @Model.Flights[i].Origin.Longitude </td>
+                        <td>Destination coordinates: @Model.Flights[i].Origin.Latitude : @Model.Flights[i].Origin.Longitude </td>
+
+                        <td>
+                            <div class="button-holder">
+                                <a href="/Flight/IndexDetails?id=@Model.Flights[i].Id" class="btn btn-primary">More info</a>
+                            </div>
+                        </td>
+                    </tr>
                     }
 
                 </tbody>
 
             </table>
+
             <div class="d-flex flex-wrap align-items-center">
                 <div class="pagination mx-auto">
                     @{
@@ -73,6 +79,8 @@
                 </div>
 
             </div>
+
         </div>
     </div>
+    <script src="~/js/cities.js"></script>
 </section>

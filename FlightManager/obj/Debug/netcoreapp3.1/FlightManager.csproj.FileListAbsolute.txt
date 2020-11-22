@@ -523,8 +523,6 @@ C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\Flig
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\staticwebassets\FlightManager.StaticWebAssets.xml
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.dll
 C:\Users\viksu\OneDrive\Работен плот\FlightManager\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp3.1\FlightManager.pdb
-C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\FlightManager20201009122936 - Web Deploy\profile.arm.json
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\FlightManager.StaticWebAssets.xml
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\FlightManager.exe
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\FlightManager.deps.json
@@ -703,3 +701,4 @@ C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debu
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\SendGrid.dll
 C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
+C:\Users\viksu\source\repos\viksuper555\FlightManagerRepo\FlightManager\obj\Debug\netcoreapp3.1\scopedcss\bundle\FlightManager.styles.css

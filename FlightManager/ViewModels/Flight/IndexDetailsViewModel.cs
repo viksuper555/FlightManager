@@ -1,4 +1,5 @@
-﻿using FlightManager.ViewModels.Reservation;
+﻿using FlightManager.DataModels;
+using FlightManager.ViewModels.Reservation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace FlightManager.ViewModels.Flight
     public class IndexDetailsViewModel
     {
         public string Id { get; set; }
-        public string Origin { get; set; }
-        public string Destination { get; set; }
+        public City Origin { get; set; }
+        public City Destination { get; set; }
         public DateTime Departure { get; set; }
         public DateTime Arrival { get; set; }
         public string PlaneType { get; set; }

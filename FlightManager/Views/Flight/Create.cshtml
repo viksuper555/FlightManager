@@ -13,48 +13,87 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Origin" class="control-label"></label>
-                <input asp-for="Origin" class="form-control" />
-                <span asp-validation-for="Origin" class="text-danger"></span>
+                @if (Model.OriginCountries != null)
+                {
+                <div class="form-group">
+                    <label asp-for="Origin" class="control-label"></label>
+                    <input asp-for="Origin" class="form-control" disabled />
+                    <input asp-for="Origin" class="form-control" style="display:none" />
+                    <span asp-validation-for="Origin" class="text-danger"></span>
+                </div>
+                    <select name="OriginCountry">
+                        @foreach (var c in Model.OriginCountries)
+                        {
+                            <option value="@c">@c</option>
+                        }
+                    </select>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <label asp-for="Origin" class="control-label"></label>
+                        <input asp-for="Origin" class="form-control" />
+                        <span asp-validation-for="Origin" class="text-danger"></span>
+                    </div>
+                }
             </div>
             <div class="form-group">
-                <label asp-for="Destination" class="control-label"></label>
-                <input asp-for="Destination" class="form-control" />
-                <span asp-validation-for="Destination" class="text-danger"></span>
+                @if (Model.DestinationCountries != null)
+                {
+                <div class="form-group">
+                    <label asp-for="Destination" class="control-label"></label>
+                    <input asp-for="Destination" class="form-control" disabled />
+                    <input asp-for="Destination" class="form-control" style="display:none" />
+                    <span asp-validation-for="Destination" class="text-danger"></span>
+                </div>
+                    <select name="DestinationCountry">
+                        @foreach (var c in Model.DestinationCountries)
+                        {
+                            <option value="@c">@c</option>
+                        }
+                    </select>
+                }
+                else
+                {
+                    <label asp-for="Destination" class="control-label"></label>
+                    <input asp-for="Destination" class="form-control" />
+                    <span asp-validation-for="Destination" class="text-danger"></span>
+                }
             </div>
+            
             <div class="form-group">
                 <label asp-for="Departure" class="control-label"></label>
-                <input asp-for="Departure" class="form-control" />
+                <input asp-for="Departure" type="datetime-local" class="form-control" value="@DateTime.Today.ToString("s")" />
                 <span asp-validation-for="Departure" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Arrival" class="control-label"></label>
-                <input asp-for="Arrival" class="form-control" />
+                <input asp-for="Arrival" type="datetime-local" class="form-control" value="@DateTime.Today.AddHours(1).ToString("s")" />
                 <span asp-validation-for="Arrival" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PlaneType" class="control-label"></label>
-                <input asp-for="PlaneType" class="form-control" />
+                <input asp-for="PlaneType" class="form-control" value="Beoing 474" />
                 <span asp-validation-for="PlaneType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PlaneNumber" class="control-label"></label>
-                <input asp-for="PlaneNumber" class="form-control" />
+                <input asp-for="PlaneNumber" class="form-control" value="Sw1ft" />
                 <span asp-validation-for="PlaneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PilotName" class="control-label"></label>
-                <input asp-for="PilotName" class="form-control" />
+                <input asp-for="PilotName" class="form-control" value="Bob" />
                 <span asp-validation-for="PilotName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PassengerSeatsLeft" class="control-label"></label>
-                <input asp-for="PassengerSeatsLeft" class="form-control" />
+                <input asp-for="PassengerSeatsLeft" class="form-control" value="10" />
                 <span asp-validation-for="PassengerSeatsLeft" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BusinessClassSeatsLeft" class="control-label"></label>
-                <input asp-for="BusinessClassSeatsLeft" class="form-control" />
+                <input asp-for="BusinessClassSeatsLeft" class="form-control" value="5" />
                 <span asp-validation-for="BusinessClassSeatsLeft" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -65,6 +104,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="IndexFlights">Back to List</a>
 </div>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightManager.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,9 +10,9 @@ namespace FlightManager.ViewModels.Flight
     {
         public string Id { get; set; }
         
-        public string Origin { get; set; }
+        public City Origin { get; set; }
         
-        public string Destination { get; set; }
+        public City Destination { get; set; }
         
         public DateTime Departure { get; set; }
         
@@ -22,4 +23,5 @@ namespace FlightManager.ViewModels.Flight
         public int BusinessClassSeatsLeft { get; set; }
 
     }
+
 }

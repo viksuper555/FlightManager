@@ -15,5 +15,6 @@ namespace FlightManager.ViewModels.Flight
         public int CurrentPage { get; set; }
 
         public int EndPage { get; set; }
+
     }
 }

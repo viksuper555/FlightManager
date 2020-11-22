@@ -7,19 +7,17 @@ namespace FlightManager.Services.Contracts
 {
     public interface IFlightService
     {
-        void Create(FlightServiceModel flight);
+        public void Create(FlightServiceModel flight);
 
-        Flight GetFlightById(string id);
+        public Flight GetFlightById(string id);
 
-        IEnumerable<Flight> GetAllByPage(int currPage);
+        public IEnumerable<Flight> GetAllByPage(int currPage);
 
-        int GetCount();
-        bool Exists(string id);   
-        
-        void Edit(FlightServiceModel flight);
+        public int GetCount();
+        public bool FlightExists(string id);
+        public void Edit(FlightServiceModel flight);
 
-        void DeleteById(string id);
+        public void DeleteById(string id);
 
-        public int GetGMTDifference(Flight flight);
     }
 }

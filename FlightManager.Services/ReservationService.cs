@@ -68,8 +68,8 @@ namespace FlightManager.Services
                             <br/> Натиснете <a href='{urls}/Reservation/Delete?id={newReservation.Id}'>тук</a> за да я откажете.
                             </p>";
 
-
             emailSender.SendEmailAsync(reservation.Email, "Confirm Your Reservation", message).GetAwaiter().GetResult();
+
         }
 
         public IEnumerable<Reservation> GetAllReservations()

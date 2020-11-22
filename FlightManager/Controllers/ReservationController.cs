@@ -23,7 +23,7 @@ namespace FlightManager.Controllers
         }
         public IActionResult Create(string id)
         {
-            if(flightService.Exists(id))
+            if(flightService.FlightExists(id))
             {
                 var viewModel = new CreateReservationViewModel
                 {

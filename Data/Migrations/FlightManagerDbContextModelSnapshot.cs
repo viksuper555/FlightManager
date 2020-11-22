@@ -19,6 +19,31 @@ namespace FlightManager.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FlightManager.DataModels.City", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
+                });
+
             modelBuilder.Entity("FlightManager.DataModels.Flight", b =>
                 {
                     b.Property<string>("Id")
@@ -33,15 +58,13 @@ namespace FlightManager.Data.Migrations
                     b.Property<DateTime>("Departure")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Destination")
+                    b.Property<string>("DestinationId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(40)")
-                        .HasMaxLength(40);
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Origin")
+                    b.Property<string>("OriginId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(40)")
-                        .HasMaxLength(40);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("PassengerSeatsLeft")
                         .HasColumnType("int");
@@ -60,6 +83,10 @@ namespace FlightManager.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DestinationId");
+
+                    b.HasIndex("OriginId");
 
                     b.ToTable("Flights");
                 });
@@ -331,6 +358,21 @@ namespace FlightManager.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FlightManager.DataModels.Flight", b =>
+                {
+                    b.HasOne("FlightManager.DataModels.City", "Destination")
+                        .WithMany()
+                        .HasForeignKey("DestinationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("FlightManager.DataModels.City", "Origin")
+                        .WithMany()
+                        .HasForeignKey("OriginId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FlightManager.DataModels.Reservation", b =>

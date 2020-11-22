@@ -2,8 +2,11 @@
 using FlightManager.DataModels;
 using FlightManager.Services.Contracts;
 using FlightManager.Services.ServiceModels;
+using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -20,7 +23,7 @@ namespace FlightManager.Services
         public void Create(FlightServiceModel flight)
         {
             var newFlight = new Flight
-            {
+            {   
                 Origin = flight.Origin,
                 Destination = flight.Destination,
                 Departure = flight.Departure,
@@ -38,7 +41,7 @@ namespace FlightManager.Services
 
         public void DeleteById(string id)
         {
-            if (Exists(id))
+            if (FlightExists(id))
             {
                 var flight = GetFlightById(id);
 
@@ -53,7 +56,7 @@ namespace FlightManager.Services
 
         public void Edit(FlightServiceModel flight)
         {
-            if (Exists(flight.Id))
+            if (FlightExists(flight.Id))
             {
                 var dbFlight = GetFlightById(flight.Id);
 
@@ -77,21 +80,28 @@ namespace FlightManager.Services
 
         }
 
-        public bool Exists(string id)
+        public bool FlightExists(string id)
         {
             return context.Flights.Any(x => x.Id == id);
         }
-
         public IEnumerable<Flight> GetAllByPage(int currPage)
         {
 
             int firstHalf = currPage * 8;               //Taking first n pages of elements and
             int toBeSkipped = (currPage - 1) * 8;       //substracting first n-1 pages to get n page's elements
 
-            return context.Flights.OrderByDescending(f => f.Departure)
+            var flights = context.Flights.OrderByDescending(f => f.Departure)
                 .Take(firstHalf)
                 .Skip(toBeSkipped)
                 .ToList();
+
+            foreach(var f in flights)
+            {
+                f.Origin = context.Cities.FirstOrDefault(x => x.Id == f.OriginId);
+                f.Destination = context.Cities.FirstOrDefault(x => x.Id == f.DestinationId);
+            }
+
+            return flights;
         }
 
         public int GetCount()
@@ -101,38 +111,13 @@ namespace FlightManager.Services
 
         public Flight GetFlightById(string id)
         {
-            if (Exists(id))
+            if (FlightExists(id))
             {
                 return context.Flights.SingleOrDefault(x => x.Id == id);
             }
             throw new ArgumentException("Invalid id!");
 
         }
-
-        public int GetGMTDifference(Flight flight)
-        {
-            var GMTOrig = flight.Origin switch
-            {
-                "Bulgaria" => 2,
-                "Mexico" => -6,
-                "Singapore" => 8,
-                "Estonia" => 2,
-                "Russia" => 3,
-                "Inida" => 5,
-                _ => 0,
-            };
-            var GMTDest = flight.Destination switch
-            {
-                "Bulgaria" => 2,
-                "Mexico" => -6,
-                "Singapore" => 8,
-                "Estonia" => 2,
-                "Russia" => 3,
-                "India" => 5,
-                _ => 0,
-            };
-            return Math.Abs(GMTDest - GMTOrig);
-        
-        }
+    
     }
 }
