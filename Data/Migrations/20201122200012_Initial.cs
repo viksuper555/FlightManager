@@ -273,14 +273,12 @@ namespace FlightManager.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Flights_DestinationId",
                 table: "Flights",
-                column: "DestinationId",
-                unique: true);
+                column: "DestinationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Flights_OriginId",
                 table: "Flights",
-                column: "OriginId",
-                unique: true);
+                column: "OriginId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservations_FlightId",

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightManager.Data.Migrations
 {
     [DbContext(typeof(FlightManagerDbContext))]
-    [Migration("20201113140121_Initial")]
+    [Migration("20201122200012_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,11 +86,9 @@ namespace FlightManager.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DestinationId")
-                        .IsUnique();
+                    b.HasIndex("DestinationId");
 
-                    b.HasIndex("OriginId")
-                        .IsUnique();
+                    b.HasIndex("OriginId");
 
                     b.ToTable("Flights");
                 });
@@ -367,14 +365,14 @@ namespace FlightManager.Data.Migrations
             modelBuilder.Entity("FlightManager.DataModels.Flight", b =>
                 {
                     b.HasOne("FlightManager.DataModels.City", "Destination")
-                        .WithOne()
-                        .HasForeignKey("FlightManager.DataModels.Flight", "DestinationId")
+                        .WithMany()
+                        .HasForeignKey("DestinationId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("FlightManager.DataModels.City", "Origin")
-                        .WithOne()
-                        .HasForeignKey("FlightManager.DataModels.Flight", "OriginId")
+                        .WithMany()
+                        .HasForeignKey("OriginId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
