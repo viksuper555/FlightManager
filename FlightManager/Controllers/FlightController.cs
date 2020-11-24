@@ -146,7 +146,8 @@ namespace FlightManager.Controllers
                 FlightsCount = flightsCount,
                 Flights = new List<FlightViewModel>(),
                 CurrentPage = page,
-                EndPage = endPage
+                EndPage = endPage,
+                Connections = new Dictionary<City, List<City>>()
 
             };
 
@@ -157,6 +158,14 @@ namespace FlightManager.Controllers
                 //TimeSpan GMTdiff = TimeSpan.FromHours(flightService.GetGMTDifference(flight));
                 //TimeSpan flightDuration = flight.Arrival.Subtract(flight.Departure + GMTdiff);
                 //TODO: Fix time diff
+                if(viewModel.Connections.ContainsKey(flight.Origin))
+                {
+                    viewModel.Connections[flight.Origin].Add(flight.Destination);
+                }
+                else
+                {
+                    viewModel.Connections.Add(flight.Origin, new List<City> { flight.Destination });
+                }
 
                 viewModel.Flights.Add(new FlightViewModel
                 {
@@ -314,5 +323,7 @@ namespace FlightManager.Controllers
 
         //    return Json(true);
         //}
+
+
     }
 }

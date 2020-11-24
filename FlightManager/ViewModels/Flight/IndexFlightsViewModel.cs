@@ -1,8 +1,13 @@
 ﻿using FlightManager.DataModels;
+using Microsoft.AspNetCore.Html;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace FlightManager.ViewModels.Flight
 {
@@ -16,5 +21,6 @@ namespace FlightManager.ViewModels.Flight
 
         public int EndPage { get; set; }
 
+        public Dictionary<City, List<City>> Connections { get; set; }
     }
 }
