@@ -29,7 +29,7 @@ namespace FlightManager.Controllers
         //[Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
-            if (!User.IsInRole("Admin"))
+            if (!User.IsInRole("Admin") && !User.IsInRole("Manager"))
                 return Redirect("/Home/Index");
             var viewModel = new CreateFlightViewModel();
             return View(viewModel);
@@ -39,7 +39,7 @@ namespace FlightManager.Controllers
         [HttpPost]
         public IActionResult Create(CreateFlightViewModel viewModel)
         {
-            if (!User.IsInRole("Admin"))
+            if (!User.IsInRole("Admin") && !User.IsInRole("Manager"))
                 return Redirect("/Home/Index");
             if (!ModelState.IsValid)
             {
