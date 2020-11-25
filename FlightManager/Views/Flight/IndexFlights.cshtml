@@ -1,13 +1,12 @@
 ﻿@model FlightManager.ViewModels.Flight.IndexFlightsViewModel
 @using FlightManager.ViewModels;
-@*@{
+@{
         ViewData["Title"] = "IndexFlights";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }*@
-
+    }
+<div id="chartdiv"></div>
 <section class="py-5">
     <div class="container">
-        <h1 style="margin: 2%; text-align: center;">All Flights</h1>
+        <h1>All Flights</h1>
         <div style="padding: 5%;">
             <table class="table">
                 <thead class="thead-dark">
@@ -20,6 +19,7 @@
                         <th scope="col">Business Class Seats</th>
                         <th scope="col">Coordinates</th>
                         <th scope="col">Details</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,23 +82,11 @@
 
         </div>
     </div>
-
-    <!-- HTML -->
-    <div id="chartdiv"></div>
-
-    <!-- Styles -->
-    <style>
-        #chartdiv {
-            width: 100%;
-            height: 600px;
-        }
-    </style>
-
     <!-- Resources -->
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
     <!-- Chart code -->
@@ -106,8 +94,9 @@
         am4core.ready(function () {
 
             // Themes begin
+            am4core.useTheme(am4themes_kelly);
             am4core.useTheme(am4themes_animated);
-            am4core.useTheme(am4themes_animated);
+
             // Themes end
 
             // Create map instance
@@ -164,15 +153,18 @@
             labelsContainer.y = 27;
             labelsContainer.layout = "horizontal";
             labelsContainer.zIndex = 10;
+            
+            var highlightColor = "#FAED26";
+            var secondaryColor = "#FAED26";
 
             var plane = labelsContainer.createChild(am4core.Sprite);
             plane.scale = 0.15;
             plane.path = planeSVG;
-            plane.fill = am4core.color("#cc0000");
+            plane.fill = am4core.color(highlightColor);
 
             var title = labelsContainer.createChild(am4core.Label);
             title.text = "Flights from London";
-            title.fill = am4core.color("#cc0000");
+            title.fill = am4core.color(highlightColor);
             title.fontSize = 20;
             title.valign = "middle";
             title.dy = 2;
@@ -180,6 +172,7 @@
 
             var changeLink = chart.createChild(am4core.TextLink);
             changeLink.text = "Click to change origin city";
+            changeLink.fill = am4core.color(secondaryColor);
             changeLink.isMeasured = false;
 
             changeLink.events.on("hit", function () {
