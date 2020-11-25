@@ -141,14 +141,14 @@
                 originCities[i].zoomLongitude = originCities[i].longitude
                 originCities[i].zoomLatitude = originCities[i].latitude
             }
-            console.log(originCities)
 
-            destinationCities = destinationCities.flat()
+            const distinctCities  = destinationCities.flat().filter(
+                (thing, i, arr) => arr.findIndex(t => t.id === thing.id) === i
+            );
+            destinationCities = distinctCities;
             for (i = 0; i < originCities.length; i++) {
-                destinationCities.id
                 destinationCities[i].title = destinationCities[i].name
             }
-            console.log(destinationCities)
             
             // Default to London view
             //chart.homeGeoPoint = { "longitude": originCities[0].zoomLongitude, "latitude": originCities[0].zoomLatitude };
