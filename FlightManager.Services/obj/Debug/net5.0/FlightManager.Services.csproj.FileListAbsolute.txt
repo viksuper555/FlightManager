@@ -1,0 +1,17 @@
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\FlightManager.Services.deps.json
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\FlightManager.Services.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\ref\FlightManager.Services.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\FlightManager.Services.pdb
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\FlightManager.Data.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\FlightManager.DataModels.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\FlightManager.Data.pdb
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\bin\Debug\net5.0\FlightManager.DataModels.pdb
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.csprojAssemblyReference.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.AssemblyInfoInputs.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.AssemblyInfo.cs
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.csproj.CoreCompileInputs.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.csproj.CopyComplete
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\ref\FlightManager.Services.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.Services\obj\Debug\net5.0\FlightManager.Services.pdb

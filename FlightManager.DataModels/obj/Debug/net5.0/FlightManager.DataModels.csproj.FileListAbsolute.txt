@@ -1,0 +1,12 @@
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\bin\Debug\net5.0\FlightManager.DataModels.deps.json
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\bin\Debug\net5.0\FlightManager.DataModels.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\bin\Debug\net5.0\ref\FlightManager.DataModels.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\bin\Debug\net5.0\FlightManager.DataModels.pdb
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\FlightManager.DataModels.csprojAssemblyReference.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\FlightManager.DataModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\FlightManager.DataModels.AssemblyInfoInputs.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\FlightManager.DataModels.AssemblyInfo.cs
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\FlightManager.DataModels.csproj.CoreCompileInputs.cache
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\FlightManager.DataModels.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\ref\FlightManager.DataModels.dll
+C:\Users\viksu\Source\Repos\viksuper555\FlightManagerRepo\FlightManager.DataModels\obj\Debug\net5.0\FlightManager.DataModels.pdb
