@@ -61,7 +61,7 @@ namespace FlightManager.Controllers
                 return Redirect("/Flight/Create");
             }
 
-            bool valid = true; //TODO: Clean this spaghetti code
+            bool valid = true;
             if (!cityService.IsCityASingleton(viewModel.Origin) && viewModel.OriginCountry == null)
             {
                 var countries = cityService.GetCountriesByCity(viewModel.Origin);

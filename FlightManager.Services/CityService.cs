@@ -58,7 +58,7 @@ namespace FlightManager.Services
             {
                 return context.Cities.SingleOrDefault(x => x.Name == name);
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
@@ -70,7 +70,7 @@ namespace FlightManager.Services
                 var cities = context.Cities.Where(x => x.Name == name);
                 return cities.FirstOrDefault(x => x.Country == country);
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }

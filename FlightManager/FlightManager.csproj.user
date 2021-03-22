@@ -15,7 +15,7 @@
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_DbContextDialogWidth>600</WebStackScaffolding_DbContextDialogWidth>
     <WebStackScaffolding_IdentityDialogWidth>600</WebStackScaffolding_IdentityDialogWidth>
-    <NameOfLastUsedPublishProfile>FlightManager20201009122936 - Debug</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>FlightManager20201009122936 - Web Deploy</NameOfLastUsedPublishProfile>
     <View_SelectedScaffolderID>RazorViewScaffolder</View_SelectedScaffolderID>
     <View_SelectedScaffolderCategoryPath>root/Common/MVC/View</View_SelectedScaffolderCategoryPath>
   </PropertyGroup>
